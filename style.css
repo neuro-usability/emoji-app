@@ -1,0 +1,214 @@
+@font-face{
+  font-family: "EmojiOne";
+  src: url("lib/emojione.woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: "EmojiOne","Fira Sans", sans-serif;
+  font-size: 16px;
+  background-color: #333;
+}
+input {
+  font-family: "EmojiOne","Fira Sans", sans-serif !important;
+}
+
+.app {
+  height: 100vh;
+  background-color: #dbe6eb;
+}
+.app-header {
+  width: 100%;
+  height: 4em;
+  background-color: #546e7a;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-btn {
+  flex-grow: 0;
+  display: block;
+  height: 3rem;
+  width: 3rem;
+  margin: 0;
+  font-size: 1.8rem;
+  line-height: 150%;
+  cursor: pointer;
+  text-align: center;
+}
+.user-avatar {
+  flex-grow: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1.5rem;
+  display: block;
+}
+.user-description {
+  flex-grow: 2;
+
+  margin-left: 0.6rem;
+}
+
+.history {
+  padding: 5px 0;
+
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 400px) and (min-height: 600px) {
+  .app-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .app {
+    width: 320px;
+    height: 450px;
+    overflow: hidden;
+
+    position: relative;
+  }
+  .history {
+    height: inherit;
+    margin-bottom: 300px;
+    overflow-y: scroll;
+  }
+}
+
+
+.message-row {
+  margin: 0.4em 0;
+}
+.message-row.sent {
+  direction: rtl;
+}
+.sent + .sent,
+.received + .received {
+  margin-top: -0.2em;
+}
+.message {
+  max-width: 70%;
+  display: inline-block;
+  padding: 0.4em 0.5em;
+  margin: 0 0.6em;
+  border-radius: 0.3em;
+  background-color: white;
+  box-shadow: 0 0.15em 0.05em rgba(0,0,0,0.2);
+  direction: ltr;
+}
+.sent .message {
+  /*background-color: #b1ddf2;*/
+}
+
+.compose {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.message.composing {
+  /*background-color: white;
+  border-radius: 0.3em;
+  margin: 0.4em 0.6em;
+  padding: 0.4em 0.8em;
+  box-shadow: 0 0.15em 0.05em rgba(0,0,0,0.2);*/
+  max-width: 100%;
+
+  display: flex;
+}
+.message-input {
+  flex-grow: 0;
+
+  width: calc(100% - 2.2em);
+  border: none;
+  font-size: 16px;
+  background-color: transparent;
+}
+.compose-btn {
+  flex-grow: 0;
+
+  display: block;
+  margin: 0 0 0 0.3em;
+  font-size: 1.8em;
+  color: #546e7a;
+  z-index: 99999999;
+  /*color: #627a8c;*/
+  cursor: pointer;
+}
+.compose-emoji {
+  width: 96%;
+  margin: 0.2em auto;
+  /*background-color: #b0c4cd;*/
+
+  display: flex;
+  justify-content: space-around;
+}
+.emoji {
+  display: block;
+  font-size: 2.8em;
+  text-shadow: 0 0.07em 0.05em rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+
+/* AFFECTIVA DEBUG STUFF */
+.affectiva {
+  display: none !important;
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+  z-index: 10000;
+  width: 600px;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+.affectiva > .video,
+.em-logs,
+.em-results {
+  background-color: rgba(250,250,250,0.9);
+  height: 260px;
+  font-size: 10px;
+  margin: 7px 10px;
+  padding: 8px 10px;
+  border-radius: 4px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+}
+.affectiva > .video {
+  align-self: flex-end;
+}
+.affectiva > .right {
+  display: flex;
+}
+
+.buttons {
+  margin-bottom: 15px;
+}
+.buttons > button {wrap
+  display: block;
+  width: 100%;
+  font-size: 1.4em;
+}
+.video {
+  width: 340px;
+}
+.video > video {
+  width: 320px;
+  height: 240px;
+}
+.em-results {
+  width: 300px;
+}
+.em-logs {
+  width: 180px;
+}

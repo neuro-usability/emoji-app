@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>Emoji App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="lib/flickity.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="affectiva">
+      <div class="video" id="affdex_elements"></div>
+      <div class="right">
+        <div class="em-results">
+          <div id="results" style="word-wrap:break-word;"></div>
+        </div>
+        <div class="em-logs">
+          <div class="buttons">
+            <button id="start" onclick="onStart()">Start</button>
+            <button id="record">Record</button>
+            <button id="stop" onclick="onStop()">Stop</button>
+          </div>
+          <div id="logs"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-container">
+      <div class="app">
+
+        <div class="app-header">
+          <span class="header-btn back-btn">←</span>
+          <img class="user-avatar" src="img/user.jpg">
+          <div class="user-description">An old friend</div>
+          <span class="header-btn next-btn">→</span>
+        </div>
+
+        <div class="history">
+          <div class="message-row sent"><div class="message">Yo dudeee 😁😁</div></div>
+          <div class="message-row sent"><div class="message">How's it going? </div></div>
+          <div class="message-row received"><div class="message">Pretty good, except for all these emoji 😢😕😋😱😊😁☺️😒😳😝😨😫😡😮😥😓😵</div></div>
+          <div class="message-row received"><div class="message">Heyyoooo 😆</div></div>
+          <div class="message-row sent"><div class="message">That shit cray, dawg 😉</div></div>
+          <div class="message-row received"><div class="message">😋</div></div>
+        </div>
+
+        <div class="compose">
+          <div class="message composing">
+            <input type="text" class="message-input" id="message-input" placeholder="Type your message">
+            <span class="compose-btn">↑</span>
+          </div>
+          <div class="compose-emoji">
+            <span class="emoji">😂</span>
+            <span class="emoji">😁</span>
+            <span class="emoji">😄</span>
+            <span class="emoji">😊</span>
+            <span class="emoji">😍</span>
+            <span class="emoji">😉</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+  <script src='lib/jquery.min.js'></script>
+  <script src='lib/flickity.pkgd.min.js'></script>
+  <script src='lib/affdex.js'></script>
+  <script src="script.js"></script>
+</body>
+</html>
