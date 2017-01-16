@@ -1,7 +1,47 @@
+var flkty;
+var input = document.getElementById("message-input");
+
+window.onload = function() {
+  flkty = new Flickity('.carousel', {
+    pageDots: false,
+    prevNextButtons: false,
+    selectedAttraction: 0.3,
+    friction: 0.9
+  });
+};
+
 $(".emoji").click(function () {
-  console.log(this.innerHTML);
   $("#message-input").val($("#message-input").val() + this.innerHTML);
+  focusInput();
 });
+
+$(".compose-btn").click(function () {
+  if (input.value !== "") {
+    var newMsgRow = document.createElement("div");
+    var newMsg = document.createElement("div");
+    newMsgRow.className = "message-row sent";
+    newMsg.className = "message";
+    newMsg.innerHTML = input.value;
+    newMsgRow.appendChild(newMsg);
+    $(flkty.selectedElement).find(".history").append(newMsgRow);
+    input.value = "";
+    input.focus();
+  }
+});
+
+$(".back-btn").click(function () {
+  flkty.previous();
+});
+$(".next-btn").click(function () {
+  flkty.next();
+});
+
+function focusInput() {
+  input.focus();
+  var tmpStr = input.value;
+  input.value = "";
+  input.value = tmpStr;
+}
 
 
 // SDK Needs to create video and canvas nodes in the DOM in order to function
