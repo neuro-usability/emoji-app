@@ -165,6 +165,9 @@ input {
 .carousel-cell:first-of-type .user-avatar {
   margin-left: 0.6em;
 }
+.flickity-viewport {
+  height: 100vh !important;
+}
 
 /* AFFECTIVA DEBUG STUFF */
 .affectiva {
