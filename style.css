@@ -133,19 +133,46 @@ input {
   flex-grow: 0;
 
   width: calc(100% - 2.2em);
+  padding: 0.4em;
+  padding-top: 0.5em;
+  padding-bottom: 0.1em;
   border: none;
   font-size: 16px;
   background-color: transparent;
+
+  -webkit-appearance: textarea;
+  background-color: white;
+  -webkit-rtl-ordering: logical;
+  -webkit-user-select: text;
+  -webkit-box-orient: vertical;
+  resize: auto;
+  cursor: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font: -webkit-small-control;
+  color: initial;
+  letter-spacing: normal;
+  word-spacing: normal;
+  line-height: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  text-align: -webkit-auto;
+  outline: 0;
+}
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
 }
 .compose-btn {
   flex-grow: 0;
+  align-self: center;
 
   display: block;
-  margin: 0 0 0 0.3em;
+  margin: 0 0.2em 0 0.3em;
   font-size: 1.8em;
   color: #546e7a;
   z-index: 99999999;
-  /*color: #627a8c;*/
   cursor: pointer;
 }
 .compose-emoji {
@@ -156,25 +183,37 @@ input {
   display: flex;
   justify-content: space-around;
 }
+[contenteditable=true]:empty:before{
+  content: attr(placeholder);
+  display: block; /* For Firefox */
+  color: #999;
+}
 .emoji {
   display: block;
   font-size: 2.8em;
-  text-shadow: 0 0.04em 0.02em rgba(0,0,0,0.1);
   cursor: pointer;
+  text-shadow: 0 0.04em 0.02em rgba(0,0,0,0.1);
 }
+.inline-emoji {
+  font-size: 1.2em;
+  line-height: 70%;
+}
+
 .video-container {
   align-self: center;
 
-  height: 45px;
-  width: 45px;
+  transform: translateY(0.1em);
+  height: 43px;
+  width: 43px;
   border-radius: 30px;
   overflow: hidden;
+  box-shadow: 0 0.04em 0.15em rgba(0,0,0,0.3);
+  background-color: #fff;
   /*background-color: #fff;*/
 }
 .compose-emoji .video {
   height: 45px;
   width: 45px;
-  background-color: #444;
 }
 .video > #face_video,
 .video > #face_video_canvas {
@@ -206,7 +245,7 @@ button,
 
 /* AFFECTIVA DEBUG STUFF */
 .affectiva {
-  /*display: none !important;*/
+  display: none !important;
   opacity: 0.2;
   z-index: -100 !important;
 

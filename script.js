@@ -24,7 +24,7 @@ function getPredictedEmoji() {
     console.log("sending this:", window.currentDataObject);
     emojiRequest();
     getPredictedEmoji();
-  }, 2000);
+  }, 1000);
 }
 
 function emojiRequest() {
@@ -64,24 +64,33 @@ function updateEmoji(newEmojiList) {
 
 function makeEmojiClickable() {
   $(".emoji").click(function () {
-    $("#message-input").val($("#message-input").val() + this.innerHTML);
-    focusInput();
+    $("#message-input").html($("#message-input").html() + " " + this.innerHTML + " ");
+    placeCaretAtEnd(input);
   });
 }
 
+$(window).on('keydown', function(e) {
+    if (e.which == 13) {
+        e.preventDefault();
+        sendMessage();
+    }
+});
 $(".compose-btn").click(function () {
-  if (input.value !== "") {
+  sendMessage();
+});
+function sendMessage() {
+  if (input.innerHTML !== "") {
     var newMsgRow = document.createElement("div");
     var newMsg = document.createElement("div");
     newMsgRow.className = "message-row sent";
     newMsg.className = "message";
-    newMsg.innerHTML = input.value;
+    newMsg.innerHTML = input.innerHTML;
     newMsgRow.appendChild(newMsg);
     $(flkty.selectedElement).find(".history").append(newMsgRow);
-    input.value = "";
-    input.focus();
+    input.innerHTML = "";
+    placeCaretAtEnd(input);
   }
-});
+}
 
 $(".back-btn").click(function () {
   flkty.previous();
@@ -90,11 +99,21 @@ $(".next-btn").click(function () {
   flkty.next();
 });
 
-function focusInput() {
-  input.focus();
-  var tmpStr = input.value;
-  input.value = "";
-  input.value = tmpStr;
+function placeCaretAtEnd(el) {
+    el.focus();
+    if (typeof window.getSelection != "undefined" && typeof document.createRange != "undefined") {
+        var range = document.createRange();
+        range.selectNodeContents(el);
+        range.collapse(false);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+    } else if (typeof document.body.createTextRange != "undefined") {
+        var textRange = document.body.createTextRange();
+        textRange.moveToElementText(el);
+        textRange.collapse(false);
+        textRange.select();
+    }
 }
 
 
