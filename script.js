@@ -5,6 +5,7 @@ var emojiList = ["😂", "😂", "😁", "😄", "😍"];
 makeEmojiClickable();
 setTimeout(function() {
   onStart();
+  getPredictedEmoji();
 }, 2000);
 
 window.onload = function() {
@@ -17,13 +18,21 @@ window.onload = function() {
   });
 };
 
+function getPredictedEmoji() {
+  setTimeout(function() {
+    console.log("getting new emoji!");
+    console.log("sending this:", window.currentDataObject);
+    emojiRequest();
+    getPredictedEmoji();
+  }, 2000);
+}
 
-function getEmoji() {
+function emojiRequest() {
   var urlAPI = "http://127.0.0.1:3456";
   $.ajax({
     type: "POST",
     url: urlAPI,
-    data: JSON.stringify(testdata),
+    data: JSON.stringify(window.currentDataObject),
     success: function(stringData) {
       console.log("POST request successful");
       serverData = JSON.parse(stringData);
@@ -262,63 +271,63 @@ console.save = function(data, filename){
    "grinning": "😀"
  };
 
- var testdata =
- {
-   "emotions": {
-       "joy": 0.0018109878292307258,
-       "sadness": 0.005754591431468725,
-       "disgust": 0.002205597935244441,
-       "contempt": 98.73298645019531,
-       "anger": 0.06215667352080345,
-       "fear": 0.004856272600591183,
-       "surprise": 0.20701992511749268,
-       "valence": -38.08766555786133,
-       "engagement": 20.26823616027832
-   },
-   "expressions": {
-       "smile": 0.000023030233933241107,
-       "innerBrowRaise": 1.9380459785461426,
-       "browRaise": 0.2859000265598297,
-       "browFurrow": 0.00969726126641035,
-       "noseWrinkle": 0.00043722306145355105,
-       "upperLipRaise": 0.00004210080442135222,
-       "lipCornerDepressor": 0.000513893086463213,
-       "chinRaise": 31.874370574951172,
-       "lipPucker": 0.03352072834968567,
-       "lipPress": 12.595565795898438,
-       "lipSuck": 80.53952026367188,
-       "mouthOpen": 0.0023829129058867693,
-       "smirk": 99.81714630126953,
-       "eyeClosure": 0.0003859243879560381,
-       "attention": 95.13105773925781,
-       "lidTighten": 0.017757877707481384,
-       "jawDrop": 0.0011974868830293417,
-       "dimpler": 31.39752769470215,
-       "eyeWiden": 40.02793502807617,
-       "cheekRaise": 0.0001795788703020662,
-       "lipStretch": 0.20892594754695892
-   },
-   "emojis": {
-       "relaxed": 0.0018055122345685959,
-       "smiley": 0.0018051115330308676,
-       "laughing": 0.0014010759769007564,
-       "kissing": 0.001852858462370932,
-       "disappointed": 0.0018292107852175832,
-       "rage": 0.06215667352080345,
-       "smirk": 98.59152221679688,
-       "wink": 0.00214673625305295,
-       "stuckOutTongueWinkingEye": 2.2977633476257324,
-       "stuckOutTongue": 2.2977633476257324,
-       "flushed": 0.0019499057671055198,
-       "scream": 0.02797398529946804,
-       "dominantEmoji": "😏"
-   },
-   "measurements": {
-       "interocularDistance": 44.49846649169922,
-       "orientation": {
-           "pitch": 4.5839385986328125,
-           "yaw": -7.138108253479004,
-           "roll": -5.156097888946533
-       }
-   }
-};
+//  var testdata =
+//  {
+//    "emotions": {
+//        "joy": 0.0018109878292307258,
+//        "sadness": 0.005754591431468725,
+//        "disgust": 0.002205597935244441,
+//        "contempt": 98.73298645019531,
+//        "anger": 0.06215667352080345,
+//        "fear": 0.004856272600591183,
+//        "surprise": 0.20701992511749268,
+//        "valence": -38.08766555786133,
+//        "engagement": 20.26823616027832
+//    },
+//    "expressions": {
+//        "smile": 0.000023030233933241107,
+//        "innerBrowRaise": 1.9380459785461426,
+//        "browRaise": 0.2859000265598297,
+//        "browFurrow": 0.00969726126641035,
+//        "noseWrinkle": 0.00043722306145355105,
+//        "upperLipRaise": 0.00004210080442135222,
+//        "lipCornerDepressor": 0.000513893086463213,
+//        "chinRaise": 31.874370574951172,
+//        "lipPucker": 0.03352072834968567,
+//        "lipPress": 12.595565795898438,
+//        "lipSuck": 80.53952026367188,
+//        "mouthOpen": 0.0023829129058867693,
+//        "smirk": 99.81714630126953,
+//        "eyeClosure": 0.0003859243879560381,
+//        "attention": 95.13105773925781,
+//        "lidTighten": 0.017757877707481384,
+//        "jawDrop": 0.0011974868830293417,
+//        "dimpler": 31.39752769470215,
+//        "eyeWiden": 40.02793502807617,
+//        "cheekRaise": 0.0001795788703020662,
+//        "lipStretch": 0.20892594754695892
+//    },
+//    "emojis": {
+//        "relaxed": 0.0018055122345685959,
+//        "smiley": 0.0018051115330308676,
+//        "laughing": 0.0014010759769007564,
+//        "kissing": 0.001852858462370932,
+//        "disappointed": 0.0018292107852175832,
+//        "rage": 0.06215667352080345,
+//        "smirk": 98.59152221679688,
+//        "wink": 0.00214673625305295,
+//        "stuckOutTongueWinkingEye": 2.2977633476257324,
+//        "stuckOutTongue": 2.2977633476257324,
+//        "flushed": 0.0019499057671055198,
+//        "scream": 0.02797398529946804,
+//        "dominantEmoji": "😏"
+//    },
+//    "measurements": {
+//        "interocularDistance": 44.49846649169922,
+//        "orientation": {
+//            "pitch": 4.5839385986328125,
+//            "yaw": -7.138108253479004,
+//            "roll": -5.156097888946533
+//        }
+//    }
+// };
