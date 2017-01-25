@@ -1,8 +1,11 @@
 var flkty;
 var input = document.getElementById("message-input");
-var emojiList = ["😂", "😂", "😁", "😄", "😊", "😍"];
+var emojiList = ["😂", "😂", "😁", "😄", "😍"];
 
 makeEmojiClickable();
+setTimeout(function() {
+  onStart();
+}, 2000);
 
 window.onload = function() {
   flkty = new Flickity('.carousel', {
@@ -40,7 +43,7 @@ function getEmoji() {
 }
 
 function updateEmoji(newEmojiList) {
-  $("#compose-emoji").empty();
+  $("#compose-emoji .emoji").remove();
   for (var i=0; i < newEmojiList.length; i++) {
     var newEmoji = document.createElement("span");
     newEmoji.className = "emoji";
@@ -200,26 +203,26 @@ function drawFeaturePoints(img, featurePoints) {
 console.save = function(data, filename){
 
     if(!data) {
-        console.error('Console.save: No data')
+        console.error('Console.save: No data');
         return;
     }
 
-    if(!filename) filename = 'console.json'
+    if(!filename) filename = 'console.json';
 
     if(typeof data === "object"){
-        data = JSON.stringify(data, undefined, 4)
+        data = JSON.stringify(data, undefined, 4);
     }
 
     var blob = new Blob([data], {type: 'text/json'}),
         e    = document.createEvent('MouseEvents'),
-        a    = document.createElement('a')
+        a    = document.createElement('a');
 
-    a.download = filename
-    a.href = window.URL.createObjectURL(blob)
-    a.dataset.downloadurl =  ['text/json', a.download, a.href].join(':')
-    e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null)
-    a.dispatchEvent(e)
- }
+    a.download = filename;
+    a.href = window.URL.createObjectURL(blob);
+    a.dataset.downloadurl =  ['text/json', a.download, a.href].join(':');
+    e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+    a.dispatchEvent(e);
+ };
 
  var emojiMapping = {
    "joy": "😂",

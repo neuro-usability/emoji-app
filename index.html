@@ -10,17 +10,11 @@
 <body>
   <div class="container-fluid">
     <div class="affectiva">
-      <div class="video" id="affdex_elements"></div>
       <div class="right">
         <div class="em-results">
           <div id="results" style="word-wrap:break-word;"></div>
         </div>
         <div class="em-logs">
-          <div class="buttons">
-            <button id="start" onclick="onStart()">Start</button>
-            <button id="record">Record</button>
-            <button id="stop" onclick="onStop()">Stop</button>
-          </div>
           <div id="logs"></div>
         </div>
       </div>
@@ -94,11 +88,13 @@
             <span class="compose-btn">↑</span>
           </div>
           <div class="compose-emoji" id="compose-emoji">
+            <div class="video-container">
+              <div class="video" id="affdex_elements"></div>
+            </div>
             <span class="emoji">😂</span>
             <span class="emoji">😁</span>
             <span class="emoji">😄</span>
             <span class="emoji">😊</span>
-            <span class="emoji">😍</span>
             <span class="emoji">😉</span>
           </div>
         </div>
