@@ -16,6 +16,7 @@
 }
 body {
   margin: 0;
+  /*font-family: "Fira Sans", sans-serif;*/
   font-family: "EmojiOne","Fira Sans", sans-serif;
   font-size: 16px;
   background-color: #333;
@@ -27,6 +28,11 @@ input {
 .app {
   height: 100vh;
   background-color: #dbe6eb;
+}
+.carousel-cell {
+  display: flex;
+  flex-direction: column;
+  height: inherit;
 }
 .app-header {
   width: 100%;
@@ -63,12 +69,16 @@ input {
 }
 
 .history {
+  flex-grow: 2;
+
   padding: 5px 0;
+  overflow-y: scroll;
+  height: inherit;
 
   display: flex;
   flex-direction: column;
 }
-@media screen and (min-width: 400px) and (min-height: 600px) {
+@media screen and (min-width: 600px) and (min-height: 600px) {
   .app-container {
     position: absolute;
     left: 50%;
@@ -76,22 +86,23 @@ input {
     transform: translate(-50%, -50%);
   }
   .app {
-    width: 320px;
-    height: 450px;
+    width: 360px;
+    height: 480px;
     overflow: hidden;
 
     position: relative;
   }
   .history {
-    height: inherit;
     margin-bottom: 300px;
-    overflow-y: scroll;
   }
 }
 
 
 .message-row {
   margin: 0.4em 0;
+}
+.message-row:last-of-type {
+  padding-bottom: 120px;
 }
 .message-row.sent {
   direction: rtl;
@@ -217,8 +228,8 @@ select:-moz-focusring {
 }
 .video > #face_video,
 .video > #face_video_canvas {
-  width: 60px !important;
-  height: 50px !important;
+  width: 50px !important;
+  height: 70px !important;
 }
 button,
 .emoji,
