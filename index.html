@@ -2,7 +2,12 @@
 <head>
   <meta charset="utf-8">
   <title>Emoji App</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link href="lib/flickity.css" rel="stylesheet" type="text/css" />
 </head>
@@ -29,12 +34,13 @@
             <div class="carousel-cell" id="">
               <div class="app-header">
                 <img class="user-avatar" src="img/user.jpg">
-                <div class="user-description">An old friend</div>
+                <div class="user-description">Peter</div>
                 <span class="header-btn next-btn">→</span>
               </div>
               <div class="history">
-                <div class="message-row received"><div class="message">Yo dudeeeee what up</div></div>
-                <div class="message-row received"><div class="message">Long time no see 😁</div></div>
+                <div class="message-row received"><div class="message">Hey, we need to talk</div></div>
+                <div class="message-row sent"><div class="message">Yeah what's up, how may I help you? 😐</div></div>
+                <div class="message-row received"><div class="message">I heard you were talking shit about me behind my back. Do you have something you want to tell me? 😠</div></div>
               </div>
             </div>
 
@@ -42,15 +48,13 @@
               <div class="app-header">
                 <span class="header-btn back-btn">←</span>
                 <img class="user-avatar" src="img/user.jpg">
-                <div class="user-description">Colleague</div>
+                <div class="user-description">Soumya</div>
                 <span class="header-btn next-btn">→</span>
               </div>
               <div class="history">
-                <div class="message-row sent"><div class="message">Yo dudeee 😁😁</div></div>
-                <div class="message-row sent"><div class="message">How's it going? </div></div>
-                <div class="message-row received"><div class="message">Pretty good, except for all these emoji 😢😕😋😱😊😁☺️😒😳😝😨😫😡😮😥😓😵</div></div>
-                <div class="message-row received"><div class="message">Heyyoooo 😆</div></div>
-                <div class="message-row sent"><div class="message">That shit cray, dawg 😉</div></div>
+                <div class="message-row received"><div class="message">So, there's something I’ve been wanting to tell you.</div></div>
+                <div class="message-row sent"><div class="message">Oh boy, am I in trouble? 🙄</div></div>
+                <div class="message-row received"><div class="message">Not quite, it's just that since we’ve been going out for a month now, I certainly believe I’m in love with you 😊 😍 </div></div>
               </div>
             </div>
 
@@ -58,11 +62,39 @@
               <div class="app-header">
                 <span class="header-btn back-btn">←</span>
                 <img class="user-avatar" src="img/user.jpg">
-                <div class="user-description">A good friend</div>
+                <div class="user-description">Ted</div>
                 <span class="header-btn next-btn">→</span>
               </div>
               <div class="history">
-                <div class="message-row received"><div class="message">Heyyoooo 😆</div></div>
+                <div class="message-row received"><div class="message">Have you heard the news, Timmy’s father died in a car accident 😞</div></div>
+              </div>
+            </div>
+
+            <div class="carousel-cell" id="">
+              <div class="app-header">
+                <span class="header-btn back-btn">←</span>
+                <img class="user-avatar" src="img/user.jpg">
+                <div class="user-description">Sandy</div>
+                <span class="header-btn next-btn">→</span>
+              </div>
+              <div class="history">
+                <div class="message-row received"><div class="message">I heard you did well in the exam</div></div>
+                <div class="message-row sent"><div class="message">yeah, that's right. 😃</div></div>
+                <div class="message-row received"><div class="message">How did you do it?. I know you..Tell me you cheated.</div></div>
+              </div>
+            </div>
+
+            <div class="carousel-cell" id="">
+              <div class="app-header">
+                <span class="header-btn back-btn">←</span>
+                <img class="user-avatar" src="img/user.jpg">
+                <div class="user-description">Marshal</div>
+                <span class="header-btn next-btn">→</span>
+              </div>
+              <div class="history">
+                <div class="message-row received"><div class="message">The party is on. I will be waiting for you at 10pm 🎉</div></div>
+                <div class="message-row sent"><div class="message">Great! See you then... 👍</div></div>
+                <div class="message-row sent"><div class="message">Sorry dude, i had this thing i forgot about. I cannot make it to the party 😅</div></div>
               </div>
             </div>
 
@@ -73,9 +105,7 @@
                 <div class="user-description">Mom</div>
               </div>
               <div class="history">
-                <div class="message-row received"><div class="message">Yo dudeee 😁😁</div></div>
-                <div class="message-row sent"><div class="message">How's it going? </div></div>
-                <div class="message-row sent"><div class="message">That shit cray, dawg 😉</div></div>
+                <div class="message-row received"><div class="message">Happy Birthday!!</div></div>
               </div>
             </div>
 
