@@ -11,6 +11,7 @@ setTimeout(function() {
 window.onload = function() {
   flkty = new Flickity('.carousel', {
     pageDots: false,
+    draggable: false,
     setGallerySize: false,
     prevNextButtons: false,
     selectedAttraction: 0.15,
@@ -24,11 +25,13 @@ function getPredictedEmoji() {
     console.log("sending this:", window.currentDataObject);
     emojiRequest();
     getPredictedEmoji();
-  }, 1000);
+  }, 2000);
 }
 
 function emojiRequest() {
-  var urlAPI = "http://127.0.0.1:3456";
+  var urlAPI = "http://10.0.0.9:3456";
+  // var urlAPI = "http://127.0.0.1:3456";
+  // var urlAPI = "http://192.168.43.201:3456";
   $.ajax({
     type: "POST",
     url: urlAPI,
@@ -46,7 +49,7 @@ function emojiRequest() {
     },
     error: function(err) {
       console.log("POST request failed");
-      console.log(err);
+      // console.log(err);
     }
   });
 }
